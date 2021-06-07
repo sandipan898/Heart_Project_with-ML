@@ -3,14 +3,85 @@
 {% block content %}
 <div class="main_form container my-5">
   <form action="" method="POST">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="id_name" class="form-label">User name:</label>
+      {{form.name}}
+    </div>
+
+    
+    <div class="mb-3">
+      <label for="id_age" class="form-label">Age:</label>
+      {{form.age}}
+    </div>
+
+
+    <div class="mb-3">
+      <label for="id_sex" class="form-label">Gender :</label>
+     {{form.sex}}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_cp">Chest pain :</label>
+      {{form.cp}}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_trestbps" class="form-label">Trestbps:</label>
+      {{form.trestbps}}
+    </div>
+
+
+    <div class="mb-3">
+      <label for="id_chol" class="form-label">Cholestoral:</label>
+      {{form.chol}}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_fbs">Fasting Blood Sugar: <p>fasting blood sugar >120 </p></label>
+      {{form.fbs}}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_restecg">Electrocardiographic results :</label>
+      {{form.restecg}}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_thalach" class="form-label">Maximum heart rate (thalach) :</label>
+      {{form.thalach}}
+    </div>
+ 
+
+    <div class="mb-3">
+      <label for="id_exang">Exercise induced angina:</label>
+      {{form.exang}}
+    </div>
+ 
+    <div class="mb-3">
+      <label for="id_oldpeak" class="form-label">Oldpeak:</label>
+      {{form.oldpeak}}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_slope">Slope :</label>
+      {{form.slope}}
+    </div>
+ 
+
+    <div class="mb-3">
+      <label for="id_ca">Ca :</label>
+      {{form.ca}}
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="id_thal">Thal :</label>
+      {{form.thal}}
+    </div>
+
+    <button type="submit" class="btn btn-info">Submit All</button>
   </form>
 </div>
 {% endblock %}
