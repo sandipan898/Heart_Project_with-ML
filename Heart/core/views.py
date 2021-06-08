@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .forms import CreateFormForHeart
 import sklearn
 import numpy as np
@@ -44,20 +44,19 @@ def form_view(request):
             slope=fm.cleaned_data['ca']
             thal=fm.cleaned_data['thal']
             ca=fm.cleaned_data['ca']
-    #             index = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
-    #    'exang', 'oldpeak', 'slope', 'ca', 'thal']
-
-    #             for list in index:
-    #                  print( list=fm.cleaned_data[index[list]])
-
+            
             X_DT=np.array([[age ,sex, cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,thal,ca]])
             X_DT=sc.transform(X_DT)
             X_DT_prediction=dt.predict(X_DT)
-            print(X_DT_prediction[0])
+            result=X_DT_prediction[0]
+           
+            
+
     else:
         fm=CreateFormForHeart()
     return render(request ,'Mainapp/index.html',{'form':fm})
 
 
 def resault_view(request):
+    print(my_result)
     return render(request ,'Mainapp/resault.html')
